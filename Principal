@@ -1,0 +1,49 @@
+package programa;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import hotel.Hospedagem;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		
+		System.out.println("O hotel tem 10 quartos disponíveis\n");
+		System.out.println("Informe quantas pessoas vão alugar quarto: ");
+		int qtd = sc.nextInt();
+		
+		Hospedagem[] hosp = new Hospedagem[10];
+		
+		for(int i=0; i < qtd; i++) {
+			
+			sc.nextLine();
+			System.out.println("Qual o nome do cliente : ");
+			String nome = sc.nextLine();
+			System.out.println("Informe qual email do cliente: ");
+			String email = sc.nextLine();
+			System.out.println("Informe o quarto selecionado pelo cliente: ");
+			int quarto = sc.nextInt();
+			
+			hosp[quarto] = new Hospedagem(nome, email);
+			
+		}
+		
+		for(int i=0; i < 10; i++) {
+			
+			if(hosp[i]!= null) {
+			
+				System.out.println("O nome do cliente é " + hosp[i].getNome() );
+				System.out.println("O email é :" + hosp[i].getEmail());
+				System.out.println("O quarto é o :" + i + "\n");
+			}
+			
+			
+		}
+		
+	}
+
+}
